@@ -1,29 +1,80 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>AI Stock Picker</title>
-<link rel="stylesheet" href="style.css">
+<title>Mock Datathon – Stock Selection</title>
+
+<style>
+body{
+font-family: Arial;
+margin:40px;
+background:#f5f7fb;
+}
+
+h1{
+color:#1f4ed8;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.stock-table{
+border-collapse:collapse;
+width:100%;
+}
+
+.stock-table th, .stock-table td{
+border:1px solid #ddd;
+padding:10px;
+text-align:center;
+}
+
+.stock-table th{
+background:#1f4ed8;
+color:white;
+}
+
+button{
+background:#1f4ed8;
+color:white;
+padding:10px 20px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<h1>AI Stock Selection Model</h1>
+<div class="container">
+
+<h1>Mock Datathon: AI Stock Selection</h1>
 
 <p>
-This project predicts high-performing stocks using machine learning.
+This project uses machine learning to identify stocks likely to outperform the market.
 </p>
 
-<h2>Methodology</h2>
+<h2>Project Pipeline</h2>
 
 <ul>
-<li>Historical stock data</li>
-<li>Technical indicators</li>
-<li>Random Forest model</li>
+<li>Collect historical stock data</li>
+<li>Generate technical indicators</li>
+<li>Train machine learning model</li>
+<li>Rank stocks by predicted return</li>
 </ul>
 
-<h2>Top Predictions</h2>
+<h2>Top Predicted Stocks</h2>
 
-<table>
+<table class="stock-table">
+
 <tr>
 <th>Rank</th>
 <th>Stock</th>
@@ -33,20 +84,32 @@ This project predicts high-performing stocks using machine learning.
 <tr>
 <td>1</td>
 <td>NVDA</td>
-<td>0.91</td>
+<td>0.92</td>
 </tr>
 
 <tr>
 <td>2</td>
 <td>MSFT</td>
-<td>0.88</td>
+<td>0.89</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>AAPL</td>
+<td>0.87</td>
 </tr>
 
 </table>
 
-<h2>GitHub Repo</h2>
+<h2>Repository</h2>
 
-<a href="https://github.com/yourname/repo">View Code</a>
+<p>
+<a href="https://github.com/jacksonshaiz/Mock-Datathon">
+View the GitHub Repo
+</a>
+</p>
+
+</div>
 
 </body>
 </html>
