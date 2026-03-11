@@ -1,51 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>UVA Stock Selection Datathon</title>
+
+<style>
+
+body{
+font-family: "Helvetica", Arial, sans-serif;
+margin:0;
+background:#f6f6f6;
+color:#333;
+}
+
+header{
+background:#232D4B;
+color:white;
+padding:25px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:20px;
+}
+
+.logo{
+height:60px;
+}
+
+header h1{
+margin:0;
+font-size:32px;
+}
+
+nav{
+background:#E57200;
+padding:12px;
+text-align:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 20px;
+font-weight:bold;
+}
+
+nav a:hover{
+text-decoration:underline;
+}
+
+.container{
+max-width:1000px;
+margin:40px auto;
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 6px 15px rgba(0,0,0,0.1);
+}
+
+h2{
+color:#232D4B;
+border-bottom:3px solid #E57200;
+padding-bottom:5px;
+}
+
+.code-box{
+background:#f4f4f4;
+padding:20px;
+border-radius:6px;
+overflow-x:auto;
+}
+
+footer{
+background:#232D4B;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+button{
+background:#E57200;
+border:none;
+padding:12px 20px;
+color:white;
+border-radius:6px;
+cursor:pointer;
+font-weight:bold;
+}
+
+button:hover{
+background:#cc5f00;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<img src="images/uva-logo.png" class="logo">
+
+<div>
+<h1>UVA Stock Selection Datathon</h1>
+<p>Machine Learning for Quantitative Investing</p>
+</div>
+
+</header>
+
+<nav>
+
+<a href="#overview">Overview</a>
+<a href="#framework">Model Framework</a>
+<a href="#data">Data</a>
+<a href="#submission">Submission</a>
+<a href="https://github.com/jacksonshaiz/Mock-Datathon">GitHub</a>
+
+</nav>
+
+<div class="container">
+
+<h2 id="overview">Datathon Overview</h2>
+
+<p>
+Welcome to the University of Virginia Stock Selection Datathon. Teams will
+build machine learning models to predict stock returns and construct a
+portfolio that outperforms the market.
+</p>
+
+<p>
+Participants will use historical financial data and technical indicators
+to train predictive models and rank equities by expected performance.
+</p>
+
+
 <h2 id="framework">Model Framework: Random Forest Regression</h2>
 
 <p>
-Participants will build a machine learning model that predicts future stock returns
-using a <strong>Random Forest Regression</strong> model. The goal is to estimate
-expected returns and rank stocks based on predicted performance.
+The baseline model for this challenge is a <strong>Random Forest Regression</strong>
+model that predicts future stock returns.
 </p>
 
-<h3>Step 1: Data Collection</h3>
-
-<ul>
-<li>Historical stock prices (Open, High, Low, Close, Volume)</li>
-<li>Market index data (S&P 500)</li>
-<li>Technical indicators</li>
-</ul>
-
-<h3>Step 2: Feature Engineering</h3>
+<h3>Step 1 — Feature Engineering</h3>
 
 <ul>
 <li>Moving Averages (MA10, MA50)</li>
 <li>Relative Strength Index (RSI)</li>
-<li>Momentum indicators</li>
+<li>Momentum</li>
 <li>Volatility</li>
-<li>Trading volume trends</li>
+<li>Volume trends</li>
 </ul>
 
-<h3>Step 3: Model Training</h3>
 
-<p>Example Python implementation:</p>
+<h3>Step 2 — Model Training</h3>
 
-<pre>
-<code>
+<div class="code-box">
+
+<pre><code>
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 
-# Load dataset
 data = pd.read_csv("stock_features.csv")
 
 X = data.drop("future_return", axis=1)
 y = data["future_return"]
 
-# Train/test split
 X_train, X_test, y_train, y_test = train_test_split(
 X, y, test_size=0.2, random_state=42
 )
 
-# Random Forest Model
 model = RandomForestRegressor(
 n_estimators=200,
 max_depth=10,
@@ -55,19 +180,48 @@ random_state=42
 model.fit(X_train, y_train)
 
 predictions = model.predict(X_test)
-</code>
-</pre>
+</code></pre>
 
-<h3>Step 4: Stock Ranking</h3>
+</div>
 
-<p>
-Participants should rank stocks using predicted returns from the model.
-The final portfolio should include the top-performing stocks based on
-model predictions.
-</p>
+
+<h3>Step 3 — Portfolio Construction</h3>
 
 <ul>
-<li>Predict next-period return</li>
+<li>Predict next-period returns</li>
 <li>Rank stocks by predicted return</li>
-<li>Select top N stocks</li>
+<li>Select top N stocks for the portfolio</li>
 </ul>
+
+
+<h2 id="data">Dataset</h2>
+
+<p>
+Participants will receive a dataset containing historical stock prices
+and engineered features. Teams may add additional features if desired.
+</p>
+
+
+<h2 id="submission">Submission Requirements</h2>
+
+<ul>
+<li>Predicted returns for each stock</li>
+<li>Final ranked portfolio</li>
+<li>Model description</li>
+<li>Code submission via GitHub</li>
+</ul>
+
+<button onclick="window.location.href='https://github.com/jacksonshaiz/Mock-Datathon'">
+View Datathon Repository
+</button>
+
+</div>
+
+<footer>
+
+<p>University of Virginia | Mock Datathon Project</p>
+
+</footer>
+
+</body>
+</html>
