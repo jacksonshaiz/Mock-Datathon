@@ -1,84 +1,131 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Mock Datathon – Stock Selection</title>
+<title>Mock Datathon – UVA Stock Selection</title>
 
 <style>
+
 body{
-font-family: Arial;
-margin:40px;
-background:#f5f7fb;
+font-family: Arial, Helvetica, sans-serif;
+margin:0;
+background:#f5f5f5;
 }
 
-h1{
-color:#1f4ed8;
+header{
+background:#232D4B;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+header h1{
+margin:0;
+}
+
+nav{
+background:#E57200;
+padding:10px;
+text-align:center;
+}
+
+nav a{
+color:white;
+margin:0 15px;
+text-decoration:none;
+font-weight:bold;
 }
 
 .container{
 max-width:900px;
-margin:auto;
+margin:40px auto;
 background:white;
 padding:30px;
 border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+h2{
+color:#232D4B;
 }
 
 .stock-table{
-border-collapse:collapse;
 width:100%;
+border-collapse:collapse;
+margin-top:15px;
 }
 
-.stock-table th, .stock-table td{
+.stock-table th{
+background:#232D4B;
+color:white;
+padding:10px;
+}
+
+.stock-table td{
 border:1px solid #ddd;
 padding:10px;
 text-align:center;
 }
 
-.stock-table th{
-background:#1f4ed8;
-color:white;
-}
-
 button{
-background:#1f4ed8;
+background:#E57200;
 color:white;
-padding:10px 20px;
 border:none;
+padding:10px 20px;
 border-radius:5px;
 cursor:pointer;
 }
 
-</style>
+footer{
+margin-top:40px;
+padding:20px;
+text-align:center;
+background:#232D4B;
+color:white;
+}
 
+</style>
 </head>
 
 <body>
 
+<header>
+<h1>UVA Mock Datathon</h1>
+<p>AI-Driven Stock Selection Project</p>
+</header>
+
+<nav>
+<a href="#about">About</a>
+<a href="#method">Methodology</a>
+<a href="#stocks">Top Stocks</a>
+<a href="https://github.com/jacksonshaiz/Mock-Datathon">GitHub</a>
+</nav>
+
 <div class="container">
 
-<h1>Mock Datathon: AI Stock Selection</h1>
-
+<h2 id="about">Project Overview</h2>
 <p>
-This project uses machine learning to identify stocks likely to outperform the market.
+This project was developed for a mock datathon at the University of Virginia.
+Our model analyzes historical stock data and technical indicators to identify
+stocks that are likely to outperform the market.
 </p>
 
-<h2>Project Pipeline</h2>
+<h2 id="method">Methodology</h2>
 
 <ul>
 <li>Collect historical stock data</li>
-<li>Generate technical indicators</li>
+<li>Generate technical indicators (RSI, moving averages)</li>
 <li>Train machine learning model</li>
-<li>Rank stocks by predicted return</li>
+<li>Rank stocks by predicted performance</li>
 </ul>
 
-<h2>Top Predicted Stocks</h2>
+<h2 id="stocks">Top Predicted Stocks</h2>
 
 <table class="stock-table">
 
 <tr>
 <th>Rank</th>
 <th>Stock</th>
-<th>Score</th>
+<th>Prediction Score</th>
 </tr>
 
 <tr>
@@ -101,15 +148,11 @@ This project uses machine learning to identify stocks likely to outperform the m
 
 </table>
 
-<h2>Repository</h2>
-
-<p>
-<a href="https://github.com/jacksonshaiz/Mock-Datathon">
-View the GitHub Repo
-</a>
-</p>
-
 </div>
+
+<footer>
+<p>University of Virginia Mock Datathon Project</p>
+</footer>
 
 </body>
 </html>
