@@ -1,158 +1,73 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Mock Datathon – UVA Stock Selection</title>
+<h2 id="framework">Model Framework: Random Forest Regression</h2>
 
-<style>
-
-body{
-font-family: Arial, Helvetica, sans-serif;
-margin:0;
-background:#f5f5f5;
-}
-
-header{
-background:#232D4B;
-color:white;
-padding:20px;
-text-align:center;
-}
-
-header h1{
-margin:0;
-}
-
-nav{
-background:#E57200;
-padding:10px;
-text-align:center;
-}
-
-nav a{
-color:white;
-margin:0 15px;
-text-decoration:none;
-font-weight:bold;
-}
-
-.container{
-max-width:900px;
-margin:40px auto;
-background:white;
-padding:30px;
-border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-h2{
-color:#232D4B;
-}
-
-.stock-table{
-width:100%;
-border-collapse:collapse;
-margin-top:15px;
-}
-
-.stock-table th{
-background:#232D4B;
-color:white;
-padding:10px;
-}
-
-.stock-table td{
-border:1px solid #ddd;
-padding:10px;
-text-align:center;
-}
-
-button{
-background:#E57200;
-color:white;
-border:none;
-padding:10px 20px;
-border-radius:5px;
-cursor:pointer;
-}
-
-footer{
-margin-top:40px;
-padding:20px;
-text-align:center;
-background:#232D4B;
-color:white;
-}
-
-</style>
-</head>
-
-<body>
-
-<header>
-<h1>UVA Mock Datathon</h1>
-<p>AI-Driven Stock Selection Project</p>
-</header>
-
-<nav>
-<a href="#about">About</a>
-<a href="#method">Methodology</a>
-<a href="#stocks">Top Stocks</a>
-<a href="https://github.com/jacksonshaiz/Mock-Datathon">GitHub</a>
-</nav>
-
-<div class="container">
-
-<h2 id="about">Project Overview</h2>
 <p>
-This project was developed for a mock datathon at the University of Virginia.
-Our model analyzes historical stock data and technical indicators to identify
-stocks that are likely to outperform the market.
+Participants will build a machine learning model that predicts future stock returns
+using a <strong>Random Forest Regression</strong> model. The goal is to estimate
+expected returns and rank stocks based on predicted performance.
 </p>
 
-<h2 id="method">Methodology</h2>
+<h3>Step 1: Data Collection</h3>
 
 <ul>
-<li>Collect historical stock data</li>
-<li>Generate technical indicators (RSI, moving averages)</li>
-<li>Train machine learning model</li>
-<li>Rank stocks by predicted performance</li>
+<li>Historical stock prices (Open, High, Low, Close, Volume)</li>
+<li>Market index data (S&P 500)</li>
+<li>Technical indicators</li>
 </ul>
 
-<h2 id="stocks">Top Predicted Stocks</h2>
+<h3>Step 2: Feature Engineering</h3>
 
-<table class="stock-table">
+<ul>
+<li>Moving Averages (MA10, MA50)</li>
+<li>Relative Strength Index (RSI)</li>
+<li>Momentum indicators</li>
+<li>Volatility</li>
+<li>Trading volume trends</li>
+</ul>
 
-<tr>
-<th>Rank</th>
-<th>Stock</th>
-<th>Prediction Score</th>
-</tr>
+<h3>Step 3: Model Training</h3>
 
-<tr>
-<td>1</td>
-<td>NVDA</td>
-<td>0.92</td>
-</tr>
+<p>Example Python implementation:</p>
 
-<tr>
-<td>2</td>
-<td>MSFT</td>
-<td>0.89</td>
-</tr>
+<pre>
+<code>
+import pandas as pd
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import train_test_split
 
-<tr>
-<td>3</td>
-<td>AAPL</td>
-<td>0.87</td>
-</tr>
+# Load dataset
+data = pd.read_csv("stock_features.csv")
 
-</table>
+X = data.drop("future_return", axis=1)
+y = data["future_return"]
 
-</div>
+# Train/test split
+X_train, X_test, y_train, y_test = train_test_split(
+X, y, test_size=0.2, random_state=42
+)
 
-<footer>
-<p>University of Virginia Mock Datathon Project</p>
-</footer>
+# Random Forest Model
+model = RandomForestRegressor(
+n_estimators=200,
+max_depth=10,
+random_state=42
+)
 
-</body>
-</html>
+model.fit(X_train, y_train)
+
+predictions = model.predict(X_test)
+</code>
+</pre>
+
+<h3>Step 4: Stock Ranking</h3>
+
+<p>
+Participants should rank stocks using predicted returns from the model.
+The final portfolio should include the top-performing stocks based on
+model predictions.
+</p>
+
+<ul>
+<li>Predict next-period return</li>
+<li>Rank stocks by predicted return</li>
+<li>Select top N stocks</li>
+</ul>
